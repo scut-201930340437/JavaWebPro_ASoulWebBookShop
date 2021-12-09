@@ -3,7 +3,7 @@ JavaWeb项目
 本项目是一个基于servlet+jsp的网上购书系统（无真实付款功能）
 学号：201930340437
 姓名：葛伟
-src/main/java/com.GeWei下是所有的java文件
+    src/main/java/com.GeWei下是所有的java文件
 EntityClass下是所有实体类代码
 Filter下是全部过滤器类代码
 Repository下是全部数据库操作类代码
