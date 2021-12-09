@@ -124,7 +124,7 @@
                                     <input type="hidden" name="singlePrice" value="${requestScope.bookByID.price}">
                                     <input type="submit" value="购买" class="purchase" style="height: 50px;width: 100px;"/>
                                 </form>
-                                <button bookName="${requestScope.bookByID.name}" singlePrice="${requestScope.bookByID.price}" bookID="${requestScope.bookByID.ID}" id="addCartBtn" class="purchase" style="height: 50px;width: 100px;">加入购物车</button>
+                                <button bookID="${requestScope.bookByID.ID}" id="addCartBtn" class="purchase" style="height: 50px;width: 100px;">加入购物车</button>
                             </div>
                         </c:if>
                     </c:if>
