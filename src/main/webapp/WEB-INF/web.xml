@@ -17,7 +17,7 @@
         <url-pattern>/cart</url-pattern>
         <url-pattern>/clientOrder</url-pattern>
         <url-pattern>/managerOrder</url-pattern>
-             <url-pattern>/scan</url-pattern>
+        <url-pattern>/scan</url-pattern>
     </filter-mapping>
 
     <filter>
