@@ -80,16 +80,17 @@ public class UserRepository {
         return user;
     }
 
-    static public int UpdateName(int ID,String newName,String newTele){
+    static public int UpdateUser(int ID,String newName,String newTele,String newEmail){
         Connection connection=null;PreparedStatement preparedStatement=null;
         int res=0;
         try {
             connection= JDBCTools.getConnection();
-            String sql="update user set Name=?,Telephone=? where ID=?";
+            String sql="update user set Name=?,Telephone=?,E_mail=? where ID=?";
             preparedStatement=connection.prepareStatement(sql);
             preparedStatement.setString(1,newName);
             preparedStatement.setString(2,newTele);
-            preparedStatement.setInt(3,ID);
+            preparedStatement.setString(3,newEmail);
+            preparedStatement.setInt(4,ID);
             res=preparedStatement.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
