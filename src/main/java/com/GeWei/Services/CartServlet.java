@@ -19,9 +19,10 @@ public class CartServlet extends BaseServlet{
         Cart cart=(Cart) httpSession.getAttribute("cart");
         //构造购物车项
         int ownerID=cart.getOwnerID();
-        String name=req.getParameter("bookName");
-        double singlePrice=Double.parseDouble(req.getParameter("singlePrice"));
         int bookID=Integer.parseInt(req.getParameter("bookID"));
+        Book bookByID= BookRepository.QueryBookByID(bookID);
+        String name=bookByID.getName();
+        double singlePrice=bookByID.getPrice();
         //在购物车中添加一条记录
         cart.addItem(name,singlePrice,ownerID,bookID);
         httpSession.setAttribute("cart",cart);
