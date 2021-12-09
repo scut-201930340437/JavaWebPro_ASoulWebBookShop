@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a55f06f8-d2a6-45ec-b802-a79b3a138cdd" name="aliyun" url="http://120.24.40.182:8080">
+        <fileTransfer rootFolder="/usr/local/webDevelopmentTools/tomcat/apache-tomcat-9.0.54/webapps" accessType="SFTP" host="120.24.40.182" port="22" sshConfigId="7f8c8812-6b83-4029-80c0-d3fbbff531d3" sshConfig="root@120.24.40.182:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
