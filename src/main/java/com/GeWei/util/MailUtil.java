@@ -72,9 +72,15 @@ public class MailUtil extends Thread{
 
             String info = "尊敬的用户"+user.getAccount()+":\n"+"  感谢您在一个魂儿书城的购买!"+"订单号:"+orderID+"，商品将尽快送到您的手中，如有问题请联系书城客服!\n";
             info+="您所购买的商品如下:\n";
-            for (OrderItem orderItem:items){
-                info+="  "+orderItem.getName()+":"+orderItem.getCount()+"本。\n";
+            OrderItem orderItem;
+            int i=0;
+            for (;i<items.size()-1;i++){
+                orderItem=items.get(i);
+                info+="  "+orderItem.getName()+":"+orderItem.getCount()+"本，\n";
             }
+            orderItem=items.get(i);
+            info+="  "+orderItem.getName()+":"+orderItem.getCount()+"本。\n";
+
             message.setContent(info, "text/html;charset=UTF-8");
             message.saveChanges();
 
