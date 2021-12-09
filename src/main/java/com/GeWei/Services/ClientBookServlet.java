@@ -51,7 +51,12 @@ public class ClientBookServlet extends BaseServlet{
         //设置page
         req.setAttribute("page",page);
         req.setAttribute("bookName",bookName);
-        req.getRequestDispatcher("pages/client/index.jsp").forward(req,resp);
+        if(req.getParameter("isAdmin")==null){
+            req.getRequestDispatcher("pages/client/index.jsp").forward(req,resp);
+        }else{
+            //该方法也会被后台的书籍管理系统调用
+            req.getRequestDispatcher("pages/manager/book_manager.jsp").forward(req,resp);
+        }
     }
 
     protected void searchByID (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
