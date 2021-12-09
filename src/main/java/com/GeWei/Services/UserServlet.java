@@ -70,8 +70,9 @@ public class UserServlet extends BaseServlet {
         User user=(User) session.getAttribute("user");
         String newName=req.getParameter("newName");
         String newTele=req.getParameter("newTele");
-        user.setName(newName);user.setTelephone(newTele);
-        UserRepository.UpdateName(user.getID(),user.getName(),user.getTelephone());
+        String newEmail=req.getParameter("newEmail");
+        user.setName(newName);user.setTelephone(newTele);user.setE_mail(newEmail);
+        UserRepository.UpdateUser(user.getID(),newName,newTele,newEmail);
         session.setAttribute("user",user);
         req.setAttribute("msg","修改成功!");
         req.getRequestDispatcher("pages/user/UpdateUser.jsp").forward(req,resp);
