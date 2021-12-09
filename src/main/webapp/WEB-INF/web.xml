@@ -11,14 +11,13 @@
         <filter-name>character-set</filter-name>
         <url-pattern>/login</url-pattern>
         <url-pattern>/user</url-pattern>
-<!--        <url-pattern>/upload</url-pattern>-->
         <url-pattern>/clientBook</url-pattern>
         <url-pattern>/managerBook</url-pattern>
         <url-pattern>/mail</url-pattern>
         <url-pattern>/cart</url-pattern>
         <url-pattern>/clientOrder</url-pattern>
         <url-pattern>/managerOrder</url-pattern>
-<!--        <url-pattern>/download</url-pattern>-->
+             <url-pattern>/scan</url-pattern>
     </filter-mapping>
 
     <filter>
