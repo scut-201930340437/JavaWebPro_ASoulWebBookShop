@@ -166,7 +166,12 @@
 							<td><a class="checkItem" href="/clientOrder?method=PayOrder&orderID=${order.ID}">付款</a></td>
 						</c:if>
 					</c:if>
-					<td><a class="detailItem" href="/clientOrder?method=DetailOrder&orderID=${order.ID}">查看详情</a></td>
+					<c:if test="${sessionScope.user.root==0}">
+						<td><a class="detailItem" href="/clientOrder?method=DetailOrder&orderID=${order.ID}">查看详情</a></td>
+					</c:if>
+					<c:if test="${sessionScope.user.root==1}">
+						<td><a class="detailItem" href="/managerOrder?method=DetailOrder&orderID=${order.ID}">查看详情</a></td>
+					</c:if>
 				</tr>
 			</c:forEach>
 		</c:if>
