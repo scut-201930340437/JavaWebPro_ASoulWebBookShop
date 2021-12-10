@@ -11,10 +11,14 @@ public class ClientFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         User user = (User)httpServletRequest.getSession().getAttribute("user");
-        if(user != null){
+        if(user != null && user.getRoot()==0){
             filterChain.doFilter(servletRequest,servletResponse);
         } else{
-            httpServletRequest.getRequestDispatcher("pages/user/login.jsp?bookID="+httpServletRequest.getParameter("bookID")).forward(servletRequest,servletResponse);
+            if(user==null){
+                httpServletRequest.getRequestDispatcher("pages/user/login.jsp?bookID="+httpServletRequest.getParameter("bookID")).forward(servletRequest,servletResponse);
+            }else{
+                httpServletRequest.getRequestDispatcher("index.jsp").forward(servletRequest,servletResponse);
+            }
         }
     }
 }
