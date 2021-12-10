@@ -1,7 +1,9 @@
 package com.GeWei.Services;
 
 import com.GeWei.EntityClass.Order;
+import com.GeWei.EntityClass.OrderItem;
 import com.GeWei.EntityClass.User;
+import com.GeWei.Repository.OrderItemRepository;
 import com.GeWei.Repository.OrderRepository;
 
 import javax.servlet.ServletException;
@@ -50,7 +52,6 @@ public class ManagerOrderServlet extends BaseServlet{
         req.setAttribute("isQ","1");
         req.getRequestDispatcher("pages/order/order.jsp").forward(req,resp);
     }
-
     //根据状态查询订单
     protected void QueryOrderByStatus(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         int orderStatus=Integer.parseInt(req.getParameter("orderStatus"));
@@ -68,5 +69,17 @@ public class ManagerOrderServlet extends BaseServlet{
         req.setAttribute("sumPrice",sumPrice);
         req.setAttribute("isQ","1");
         req.getRequestDispatcher("pages/order/order.jsp").forward(req,resp);
+    }
+    //查看订单详情
+    protected void DetailOrder(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        int orderID=Integer.parseInt(req.getParameter("orderID"));
+        Order order=OrderRepository.QueryOrderByID(orderID);
+        List<OrderItem>orderItems= OrderItemRepository.QueryOrderItemByOrderID(orderID);
+
+        req.setAttribute("orderItems",orderItems);
+        req.setAttribute("totalCount",order.getTotalCount());
+        req.setAttribute("orderPrice",order.getOrderPrice());
+        req.setAttribute("orderStatus",order.getStatus());
+        req.getRequestDispatcher("pages/order/orderDetail.jsp").forward(req,resp);
     }
 }
