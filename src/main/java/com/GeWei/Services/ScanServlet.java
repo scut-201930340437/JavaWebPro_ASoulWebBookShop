@@ -37,5 +37,4 @@ public class ScanServlet extends BaseServlet{
         int res=ScanRepository.clearScanRecord(userID);
         req.getRequestDispatcher("/scan?method=ListMyScan").forward(req,resp);
     }
-
 }
