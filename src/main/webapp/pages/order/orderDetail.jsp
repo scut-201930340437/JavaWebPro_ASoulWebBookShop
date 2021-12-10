@@ -27,7 +27,7 @@
         </tr>
             <c:forEach items="${requestScope.orderItems}" var="entry">
                 <tr>
-                    <td>${entry.name}</td>
+                    <td><a href="/clientBook?method=searchByID&bookID=${entry.bookID}" style="text-decoration: none;">${entry.name}</a></td>
                     <td>${entry.count}</td>
                     <td>${entry.totalPrice}</td>
                     <td>${entry.orderID}</td>
@@ -62,8 +62,6 @@
             </c:if>
         </div>
 </div>
-
-
 <%--静态包含页脚内容--%>
 <%@include file="/pages/common/footer.jsp"%>
 </body>
