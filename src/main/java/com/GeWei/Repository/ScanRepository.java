@@ -90,7 +90,7 @@ public class ScanRepository {
 
     static public List<Scan> ListMyScan(int userID){
         List<Scan>items=new ArrayList<>();
-        Connection connection=null;PreparedStatement preparedStatement=null;
+        Connection connection=null;
         try {
             connection= JDBCTools.getConnection();
             String sql="select * from scanrecord where UserID=?";
@@ -99,7 +99,23 @@ public class ScanRepository {
         }catch (SQLException e){
             e.printStackTrace();
         }finally {
-            JDBCTools.Release(connection,preparedStatement,null);
+            JDBCTools.Release(connection,null,null);
+        }
+        return items;
+    }
+
+    static public List<Scan> ListScan(){
+        List<Scan>items=new ArrayList<>();
+        Connection connection=null;
+        try {
+            connection= JDBCTools.getConnection();
+            String sql="select * from scanrecord";
+            QueryRunner queryRunner=new QueryRunner();
+            items=queryRunner.query(connection,sql,new BeanListHandler<>(Scan.class));
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            JDBCTools.Release(connection, null,null);
         }
         return items;
     }
