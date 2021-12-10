@@ -65,7 +65,8 @@
 				<%--如果购物车非空的情况--%>
 				<c:forEach items="${sessionScope.cart.items}" var="entry">
 					<tr>
-						<td>${entry.value.name}</td>
+						<!--点击书名可以跳转至详情页面-->
+						<td><a href="/clientBook?method=searchByID&bookID=${entry.value.bookID}" style="text-decoration: none;">${entry.value.name}</a></td>
 						<td>
 							<input class="updateCount" style="width: 80px;"
 								   ID="${entry.value.ID}"
