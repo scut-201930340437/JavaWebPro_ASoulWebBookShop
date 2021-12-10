@@ -11,13 +11,21 @@
         <input type="hidden" name="method" value="pageBooks"/>
         <input type="submit" value="图书管理" class="purchase"/>
     </form>
+
     <form action="/managerOrder" method="post" style="float: left;margin-right: 10px;">
         <input type="hidden" name="method" value="ListOrder">
         <input type="submit" value="订单管理" class="purchase"/>
     </form>
+
+    <form action="/managerScan" method="post" style="float: left;margin-right: 10px;">
+        <input type="hidden" name="method" value="listScan">
+        <input type="submit" value="浏览日志" class="purchase"/>
+    </form>
+
     <form action="index.jsp" method="post" style="float: left;margin-right: 10px;">
         <input type="submit" value="返回书城" class="purchase"/>
     </form>
+
     <form action="/download" method="get" style="float: left">
         <input type="submit" value="下载报表" class="purchase"/>
     </form>
