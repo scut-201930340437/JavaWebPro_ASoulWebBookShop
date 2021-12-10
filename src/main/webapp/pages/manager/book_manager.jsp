@@ -27,16 +27,17 @@
 	</div>
 	
 	<div id="main" style="height: 570px;">
-		<div class="book_cond" style="height: 5%;">
-            		<form action="/clientBook" method="post">
-                		<input type="hidden" name="method" value="searchByName">
+        <div class="book_cond" style="height: 5%;">
+            <form action="/clientBook" method="post">
+                <input type="hidden" name="method" value="searchByName">
 				<input type="hidden" name="isAdmin" value="1">
-                		<div class="search">
-                    			<input type="text" placeholder="搜索书名" autocomplete="off"  name="bookName" value="${requestScope.bookName}" class="search_box" style="height: 30px;width: 400px;"/>
-                    			<input type="submit" value="搜索" class="search_btn"/>
-                		</div>
-            		</form>
-        	</div>
+                <div class="search">
+                    <input type="text" placeholder="搜索书名" autocomplete="off"  name="bookName" value="${requestScope.bookName}" class="search_box" style="height: 30px;width: 400px;"/>
+                    <input type="submit" value="搜索" class="search_btn"/>
+                </div>
+            </form>
+        </div>
+		<div style="color: red;">${requestScope.errorMsg}</div>
 		<table>
 			<tr>
 				<td>名称</td>
@@ -47,7 +48,7 @@
 				<td>浏览量</td>
 				<td colspan="2">操作</td>
 			</tr>
-			${requestScope.page.pageSize}
+			页面最大记录数:${requestScope.page.pageSize}
 			<c:forEach items="${requestScope.page.pageBooks}" var="book">
 				<tr>
 					<td>${book.name}</td>
