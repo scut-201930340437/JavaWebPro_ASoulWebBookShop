@@ -38,6 +38,8 @@
         <filter-name>manager</filter-name>
         <url-pattern>/pages/manager/*</url-pattern>
         <url-pattern>/managerBook</url-pattern>
+        <url-pattern>/managerOrder</url-pattern>
+        <url-pattern>/managerScan</url-pattern>
     </filter-mapping>
 
     <filter>
@@ -47,6 +49,7 @@
     <filter-mapping>
         <filter-name>client</filter-name>
         <url-pattern>/clientOrder</url-pattern>
+        <url-pattern>/cart</url-pattern>
     </filter-mapping>
 
     <error-page>
