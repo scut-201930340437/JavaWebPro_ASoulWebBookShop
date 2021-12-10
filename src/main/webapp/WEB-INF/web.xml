@@ -48,6 +48,8 @@
     </filter>
     <filter-mapping>
         <filter-name>client</filter-name>
+        <url-pattern>/pages/cart/*</url-pattern>
+        <url-pattern>/pages/order/checkout.jsp</url-pattern>
         <url-pattern>/clientOrder</url-pattern>
         <url-pattern>/cart</url-pattern>
     </filter-mapping>
