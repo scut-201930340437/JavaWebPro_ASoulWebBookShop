@@ -49,8 +49,8 @@ public class ScanRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,resultSet);
+            return res;
         }
-        return res;
     }
 
     static public int deleteScanRecord(int userID,int bookID){
@@ -67,8 +67,8 @@ public class ScanRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 
     static public int clearScanRecord(int userID){
@@ -84,8 +84,8 @@ public class ScanRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 
     static public List<Scan> ListMyScan(int userID){

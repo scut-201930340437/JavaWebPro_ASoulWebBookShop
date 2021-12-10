@@ -25,8 +25,8 @@ public class UserRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,resultSet);
+            return res;
         }
-        return res;
     }
     static public int AddUser(String myAccount,String myPassword,String myEmail){
         int res=0;
@@ -51,8 +51,8 @@ public class UserRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,resultSet);
+            return res;
         }
-        return res;
     }
 
     static public User QueryUser(String myAccount, String myPassword){
@@ -96,7 +96,7 @@ public class UserRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 }

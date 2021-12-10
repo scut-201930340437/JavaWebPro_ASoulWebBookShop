@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookRepository {
-    static public int getRows(){    
+    static public int getRows(){
         int res=0;
         Connection connection=null;
         PreparedStatement preparedStatement=null;
@@ -32,8 +32,8 @@ public class BookRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,resultSet);
+            return res;
         }
-        return res;
     }
 
     static public int AddBook(String Name,String Author,double Price,int Sales,int Stock,String Img_path){
@@ -55,8 +55,8 @@ public class BookRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,resultSet);
+            return res;
         }
-        return res;
     }
 
     static public Book QueryBookByID(int ID){
@@ -93,22 +93,22 @@ public class BookRepository {
         return books;
     }
 
-    static public List<Book> QueryBooks(){
-        List<Book> books=new ArrayList<>();
-        Connection connection=null;PreparedStatement preparedStatement=null;
-        try {
-            connection= JDBCTools.getConnection();
-            String sql="select * from book";
-            QueryRunner queryRunner=new QueryRunner();
-            books=queryRunner.query(connection,sql,new BeanListHandler<>(Book.class));
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }finally {
-            JDBCTools.Release(connection,preparedStatement,null);
-        }
-        return books;
-    }
+//    static public List<Book> QueryBooks(){
+//        List<Book> books=new ArrayList<>();
+//        Connection connection=null;PreparedStatement preparedStatement=null;
+//        try {
+//            connection= JDBCTools.getConnection();
+//            String sql="select * from book";
+//            QueryRunner queryRunner=new QueryRunner();
+//            books=queryRunner.query(connection,sql,new BeanListHandler<>(Book.class));
+//
+//        }catch (SQLException e){
+//            e.printStackTrace();
+//        }finally {
+//            JDBCTools.Release(connection,preparedStatement,null);
+//        }
+//        return books;
+//    }
 
     static public List<Book> QueryBooksPage(int pageNo,int pageSize){
         List<Book> books=new ArrayList<>();
@@ -143,8 +143,8 @@ public class BookRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 
     static public int UpdateBookByID(int ID,String Name,String Author,double Price,int Sales,int Stock){
@@ -165,8 +165,8 @@ public class BookRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 
     static public int DeleteBookByID(int ID){
@@ -182,8 +182,8 @@ public class BookRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 
     static public void UpdateBookVisit(int ID){

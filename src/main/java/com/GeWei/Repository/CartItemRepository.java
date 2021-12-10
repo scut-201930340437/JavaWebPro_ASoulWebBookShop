@@ -37,8 +37,8 @@ public class CartItemRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,resultSet);
+            return res;
         }
-        return res;
     }
 
     static public int DeleteCartItemByOwnerID(int OwnerID){
@@ -54,8 +54,8 @@ public class CartItemRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 
     static public int DeleteCartItemByID(int ID){
@@ -71,8 +71,8 @@ public class CartItemRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 
     static public int UpdateCartItem(int ID,int Count,double TotalPrice){
@@ -90,8 +90,8 @@ public class CartItemRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 
     static public List<CartItem> QueryCartItemByOwnerID(int OwnerID){
@@ -143,7 +143,7 @@ public class CartItemRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 }

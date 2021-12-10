@@ -36,8 +36,8 @@ public class OrderItemRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,resultSet);
+            return res;
         }
-        return res;
     }
 
     static public int DeleteOrderItemByOrderID(int OrderID){
@@ -53,8 +53,8 @@ public class OrderItemRepository {
             e.printStackTrace();
         }finally {
             JDBCTools.Release(connection,preparedStatement,null);
+            return res;
         }
-        return res;
     }
 
     static public List<OrderItem> QueryOrderItemByOrderID(int OrderID){
