@@ -4,6 +4,7 @@ import com.GeWei.EntityClass.User;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class ClientFilter implements Filter {
@@ -14,10 +15,19 @@ public class ClientFilter implements Filter {
         if(user != null && user.getRoot()==0){
             filterChain.doFilter(servletRequest,servletResponse);
         } else{
+            String basePath=servletRequest.getScheme()
+                    + "://"
+                    + httpServletRequest.getServerName()
+                    + ":"
+                    + httpServletRequest.getServerPort()
+                    + httpServletRequest.getContextPath()
+                    + "/";
             if(user==null){
-                httpServletRequest.getRequestDispatcher("pages/user/login.jsp?bookID="+httpServletRequest.getParameter("bookID")).forward(servletRequest,servletResponse);
-            }else{
-                httpServletRequest.getRequestDispatcher("index.jsp").forward(servletRequest,servletResponse);
+                HttpServletResponse httpServletResponse=(HttpServletResponse) servletResponse;
+                httpServletResponse.sendRedirect(basePath+"pages/user/login.jsp");
+            }else {
+                HttpServletResponse httpServletResponse=(HttpServletResponse) servletResponse;
+                httpServletResponse.sendRedirect(basePath);
             }
         }
     }
