@@ -1,9 +1,8 @@
 package com.GeWei.Services;
 
+import com.GeWei.EntityClass.Book;
 import com.GeWei.EntityClass.Cart;
-import com.GeWei.EntityClass.CartItem;
-import com.GeWei.EntityClass.User;
-import com.GeWei.Repository.CartItemRepository;
+import com.GeWei.Repository.BookRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

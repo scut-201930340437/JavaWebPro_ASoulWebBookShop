@@ -28,11 +28,11 @@ public class ManagerBookServlet extends BaseServlet{
 
     }
 
-    protected void ListBooks(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        List<Book>books=BookRepository.QueryBooks();
-        req.setAttribute("books",books);
-        req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req,resp);
-    }
+//    protected void ListBooks(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+//        List<Book>books=BookRepository.QueryBooks();
+//        req.setAttribute("books",books);
+//        req.getRequestDispatcher("/pages/manager/book_manager.jsp").forward(req,resp);
+//    }
 
     protected void pageBooks(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         int pageNo=1,pageSize=5;
@@ -77,7 +77,11 @@ public class ManagerBookServlet extends BaseServlet{
     protected void DeleteBook(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         int bookID=Integer.parseInt(req.getParameter("bookID"));
         int res=BookRepository.DeleteBookByID(bookID);
-        Book.deleteBook();
+        if(res>0){
+            Book.deleteBook();
+        }else{
+            req.setAttribute("errorMsg","无法删除，可能由于某用户在购物车中添加了该书籍！");
+        }
         String pageNo=req.getParameter("pageNo");
         req.getRequestDispatcher("/managerBook?method=pageBooks"+"&pageNo="+pageNo).forward(req,resp);
     }
