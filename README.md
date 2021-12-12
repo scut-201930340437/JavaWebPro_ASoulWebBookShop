@@ -1,8 +1,8 @@
 # JavaWebPro_ASoulWebBookShop
-# JavaWeb项目
 # 部署地址：
 http://120.24.40.182:8080 
 本项目是一个基于servlet+jsp的网上购书系统（无真实付款功能）
+# 个人信息
 学号：201930340437
 姓名：葛伟   
 # src/main/java/com.GeWei下是所有的java文件
