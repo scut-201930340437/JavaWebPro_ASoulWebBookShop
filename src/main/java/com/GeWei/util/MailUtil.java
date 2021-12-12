@@ -14,11 +14,11 @@ import java.util.List;
 import java.util.Properties;
 public class MailUtil extends Thread{
     //用于给用户发送邮件的邮箱
-    private String from = "2478987785@qq.com";
+    private String from = "";
     //邮箱的用户名
-    private String username = "2478987785@qq.com";
+    private String username = "";
     //邮箱的密码
-    private String password = "rkbayrwalevgebae";
+    private String password = "";
     //发送邮件的服务器地址
     private String host = "smtp.qq.com";
 
