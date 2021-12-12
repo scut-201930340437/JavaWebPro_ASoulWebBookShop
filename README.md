@@ -1,4 +1,6 @@
 # JavaWebPro_ASoulWebBookShop
+部署地址：
+120.24.40.182:8080 
 JavaWeb项目
 本项目是一个基于servlet+jsp的网上购书系统（无真实付款功能）
 学号：201930340437
